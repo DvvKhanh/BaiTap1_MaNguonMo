@@ -45,8 +45,10 @@
 
 ### 1.3. Cài SSH trên Ubuntu
 - Trong Ubuntu chạy:
-  + sudo apt update
-  + sudo apt install openssh-server -y
+```
+sudo apt update
+sudo apt install openssh-server -y
+```
   
 - Kiểm tra SSH chạy chưa: sudo systemctl status ssh
 <img width="733" height="315" alt="image" src="https://github.com/user-attachments/assets/d33458e1-d82e-409e-9453-15686e0b73b3" />
@@ -70,8 +72,10 @@
 - Cú pháp: ls
 - Chức năng: Hiển thị danh sách file và thư mục trong thư mục hiện tại.
 - Ví dụ:
-  + ls -l # hiển thị chi tiết (quyền, kích thước, ngày)
-  + ls -a # hiển thị cả file ẩn
+```
+ls -l # hiển thị chi tiết (quyền, kích thước, ngày)
+ls -a # hiển thị cả file ẩn
+```
 
 ### 2.2. Tạo thư mục: mkdir nameFolder
 - Cú pháp: mkdir ten_thu_muc
@@ -81,17 +85,20 @@
 - Cú pháp: cd duong_dan
 - Chức năng: Di chuyển đến thư mục khác.
 - Ví dụ:
-  + cd baitap # vào thư mục baitap
-  + cd .. # quay lại thư mục trước
-  + cd ~ # về thư mục home
-
+```
+cd baitap # vào thư mục baitap
+cd .. # quay lại thư mục trước
+cd ~ # về thư mục home
+```
 ### 2.4. Copy file: cp file_nguồn path/file_đích
 - Cú pháp: cp file_nguon file_dich
 - Chức năng: Sao chép file hoặc thư mục.
 - Ví dụ:
-  + cp a.txt b.txt # copy file
-  + cp a.txt baitap/ # copy vào thư mục
-  + cp -r folder1 folder2 # copy thư mục
+```
+cp a.txt b.txt # copy file
+cp a.txt baitap/ # copy vào thư mục
+cp -r folder1 folder2 # copy thư mục
+```
 
 ### 2.5. Thay đổi quyền thao tác file: sudo chmod xxx filename
 - Cú pháp: sudo chmod xxx tenfile
@@ -106,8 +113,10 @@
 | 4  | r--  |
 
 - Ví dụ:
-  + sudo chmod 777 test.sh # full quyền
-  + sudo chmod 755 file.sh # owner full, others đọc + chạy
+```
+sudo chmod 777 test.sh # full quyền
+sudo chmod 755 file.sh # owner full, others đọc + chạy
+```
   
 ### 2.6. Edit file: sudo nano tenfile
 - Cú pháp: sudo nano tenfile
@@ -127,15 +136,19 @@
 ### 3.1. Cập nhật hệ thống
 - Mở Ubuntu trong VMWare
 - Gõ lệnh:
-  + sudo apt update
-  + sudo apt upgrade -y
+```
+sudo apt update
+sudo apt upgrade -y
+```
 ### 3.2. Cài Docker
 - Gõ lệnh: sudo apt install docker.io -y
  
 ### 3.3. Bật Docker và kiểm tra trạng thái
 - Gõ lệnh:
-  + sudo systemctl enable docker
-  + sudo systemctl start docker
+```
+sudo systemctl enable docker
+sudo systemctl start docker
+```
 - Kiểm tra trạng thái: sudo systemctl status docker
 <img width="1367" height="445" alt="image" src="https://github.com/user-attachments/assets/3818d80e-85e3-4227-9bfb-573cb957b48c" />
 
@@ -160,4 +173,41 @@
 - Test lại: docker run hello-world
 <img width="696" height="446" alt="image" src="https://github.com/user-attachments/assets/253455ca-d50e-44e4-aae7-0c299439496c" />
 
-## 6.
+## 6. Tìm hiểu tập lệnh của docker và docker compose
+### 6.1. Các tập lệnh của docker
+- Xem container đang chạy: docker ps
+- Xem tất cả container: docker ps -a
+- Xem image: docker images
+- docker images: docker pull nginx
+- Chạy container: docker run -d -p 80:80 nginx
+  + Ý nghĩa: Ý nghĩa: d → chạy nền; p 80:80 → map port
+- Dừng container: docker stop <container_id>
+- Xóa container: docker rm <container_id>
+- Xóa image: docker rmi <image_id>
+
+### 6.2. Các tập lệnh của Docker Compose
+- Tạo file: nano docker-compose.yml
+- Ví dụ file:
+```
+version: '3'
+services:
+  web:
+    image: nginx
+    ports:
+      - "80:80"
+```
+- Chạy: docker-compose up -d
+- Dừng: docker-compose down
+
+## 7. Đảm bảo tường lửa trên Ubuntu đã cho phép các cổng 80, 1880, 9630 (Lệnh: sudo ufw allow ...)
+- Bật firewall: sudo ufw enable
+- Mở port:
+```
+sudo ufw allow 80
+sudo ufw allow 1880
+sudo ufw allow 9630
+```
+<img width="442" height="220" alt="image" src="https://github.com/user-attachments/assets/641d110e-1e44-4b86-b330-02218593a803" />
+
+- Kiểm tra: sudo ufw status
+<img width="494" height="271" alt="image" src="https://github.com/user-attachments/assets/2281ff65-3db0-4be1-9a49-4cc03f84dd53" />
