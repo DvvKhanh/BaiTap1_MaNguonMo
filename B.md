@@ -122,3 +122,21 @@
 - Chức năng: Hiển thị địa chỉ IPv4 của máy Ubuntu.
 - Ví dụ kết quả: inet 192.168.91.154/24
 -> IP là: 192.168.91.154 (dùng để SSH)
+
+## 3. Cài đặt docker cho Ubuntu
+### 3.1. Cập nhật hệ thống
+- Mở Ubuntu trong VMWare
+- Gõ lệnh:
+  + sudo apt update
+  + sudo apt upgrade -y
+### 3.2. Cài Docker
+- Gõ lệnh: sudo apt install docker.io -y
+ 
+### 3.3. Bật Docker và kiểm tra trạng thái
+- Gõ lệnh:
+  + sudo systemctl enable docker
+  + sudo systemctl start docker
+- Kiểm tra trạng thái: sudo systemctl status docker
+<img width="1367" height="445" alt="image" src="https://github.com/user-attachments/assets/3818d80e-85e3-4227-9bfb-573cb957b48c" />
+
+### 4. Kiểm tra phiên bản docker vừa cài đặt, kiểm tra phiên bản của docker compose
