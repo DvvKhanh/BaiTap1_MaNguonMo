@@ -1,1 +1,1 @@
-# BaiTap1_MaNguonMo
+# Bài tập 1: Phát triển ứng dụng với mã nguồn mở
