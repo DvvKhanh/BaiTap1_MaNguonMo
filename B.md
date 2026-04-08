@@ -1,4 +1,4 @@
-# B. Cài đặt Ubuntu + Docker
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/550bcd08-98a9-4d5c-aaf5-2456d018193a" /># B. Cài đặt Ubuntu + Docker
 ## 1. Cài đặt hệ điều hành Ubuntu 24.04.4 LTS
 ### 1.1. Cài đặt Ubuntu trên VMWare
 - Giao diện VMWare:
@@ -139,4 +139,25 @@
 - Kiểm tra trạng thái: sudo systemctl status docker
 <img width="1367" height="445" alt="image" src="https://github.com/user-attachments/assets/3818d80e-85e3-4227-9bfb-573cb957b48c" />
 
-### 4. Kiểm tra phiên bản docker vừa cài đặt, kiểm tra phiên bản của docker compose
+## 4. Kiểm tra phiên bản docker vừa cài đặt, kiểm tra phiên bản của docker compose
+### 4.1. Kiểm tra Docker
+- Gõ lệnh: docker --version
+<img width="457" height="60" alt="image" src="https://github.com/user-attachments/assets/ca07ca09-7199-45d3-9b68-185f44cc973f" />
+
+### 4.2. Test Docker hoạt động
+- Gõ lệnh: sudo docker run hello-world
+- Nếu thấy dòng: Hello from Docker! -> Thành công
+<img width="698" height="461" alt="image" src="https://github.com/user-attachments/assets/3acb4be4-9545-4708-9e4d-c377417e6381" />
+
+### 4.3. Cài Docker Compose
+- Gõ lệnh: sudo apt install docker-compose -y
+- Kiểm tra Docker Compose: docker-compose --version
+<img width="395" height="61" alt="image" src="https://github.com/user-attachments/assets/7d81a4c5-f69a-451a-bc0c-6d007e25f288" />
+
+## 5. Cấu hình để docker chạy mà không cần tiền tố sudo
+- Thêm user vào group docker: sudo usermod -aG docker $USER
+- Áp dụng ngay với: newgrp docker
+- Test lại: docker run hello-world
+<img width="696" height="446" alt="image" src="https://github.com/user-attachments/assets/253455ca-d50e-44e4-aae7-0c299439496c" />
+
+## 6.
