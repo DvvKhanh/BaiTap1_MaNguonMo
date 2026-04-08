@@ -4,6 +4,10 @@
 ## Bước 2: Nhập tên domain
 ## Bước 3: Xác thực CCCD và thông tin cá nhân
 ## Bước 4: Hoàn thành đăng ký
+
+## Đăng ký tên domain thành công:
+<img width="1919" height="1011" alt="image" src="https://github.com/user-attachments/assets/d06510d6-6ea3-44cd-9561-2be545d048eb" />
+
 # 2. Đăng ký tài khoản cloudflare
 - Truy cập: https://dash.cloudflare.com/
 - Đăng ký tài khoản
