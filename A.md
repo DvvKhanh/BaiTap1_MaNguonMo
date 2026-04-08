@@ -14,19 +14,22 @@
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/ede3d74f-9018-442b-8912-a34048cf450a" />
 
 ## 3. Thêm domain đã đăng ký vào trong cloudflare
-- Trong giao diện Cloudflare, chọn Add -> chọn Connect a domain
+- Trong giao diện Cloudflare, chọn Add -> chọn Connect a domain:
 <img width="1899" height="985" alt="image" src="https://github.com/user-attachments/assets/0e8892e5-33d4-43f8-8fa4-e15f006633d0" />
 
-- Nhập domain -> nhấn Continue
+- Nhập domain -> nhấn Continue:
 <img width="1869" height="998" alt="image" src="https://github.com/user-attachments/assets/5fed0431-c5e3-4720-a62f-a412c454a26a" />
 
-- Chọn Free Plan
+- Trong Free -> chọn Select Plan:
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/3e8bf65d-c03d-441b-ae16-caacf46a626b" />
 
-- Cloudflare sẽ cấp 2 dòng:
+- Cloudflare sẽ cấp 2 dòng namespace:
 <img width="603" height="141" alt="image" src="https://github.com/user-attachments/assets/49a2b508-389c-4acb-93cf-af89d7dc8c9e" />
 
 ## 4. Nhập 2 dòng namespace của cloudflare vào trong trang quản lý DNS record của tên miền đăng ký
+- Truy cập trang quản lý domain: https://id.tenten.vn/
+<img width="1919" height="1040" alt="image" src="https://github.com/user-attachments/assets/503b2fa9-e304-4f59-9e6b-04db9f185435" />
+
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/90d6ab08-aa0b-4160-89dd-c42d27f810fe" />
 
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/a7e30d21-a19c-49a1-a04a-e71c61f24411" />
