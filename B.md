@@ -1,4 +1,4 @@
-<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/550bcd08-98a9-4d5c-aaf5-2456d018193a" /># B. Cài đặt Ubuntu + Docker
+# B. Cài đặt Ubuntu + Docker
 ## 1. Cài đặt hệ điều hành Ubuntu 24.04.4 LTS
 ### 1.1. Cài đặt Ubuntu trên VMWare
 - Giao diện VMWare:
