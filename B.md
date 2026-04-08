@@ -64,3 +64,61 @@
 
 - Kết quả SSH thành công
 <img width="1472" height="681" alt="image" src="https://github.com/user-attachments/assets/8b09a844-ef85-4ff4-823e-48c480eda645" />
+
+## 2. Tìm hiểu các lệnh cơ bản của Ubuntu
+### 2.1. Liệt kê các file trong thư mục: ls
+- Cú pháp: ls
+- Chức năng: Hiển thị danh sách file và thư mục trong thư mục hiện tại.
+- Ví dụ:
+  + ls -l # hiển thị chi tiết (quyền, kích thước, ngày)
+  + ls -a # hiển thị cả file ẩn
+
+### 2.2. Tạo thư mục: mkdir nameFolder
+- Cú pháp: mkdir ten_thu_muc
+- Chức năng: Tạo thư mục mới.
+
+### 2.3. Chuyển thư mục làm việc: cd path
+- Cú pháp: cd duong_dan
+- Chức năng: Di chuyển đến thư mục khác.
+- Ví dụ:
+  + cd baitap # vào thư mục baitap
+  + cd .. # quay lại thư mục trước
+  + cd ~ # về thư mục home
+
+### 2.4. Copy file: cp file_nguồn path/file_đích
+- Cú pháp: cp file_nguon file_dich
+- Chức năng: Sao chép file hoặc thư mục.
+- Ví dụ:
+  + cp a.txt b.txt # copy file
+  + cp a.txt baitap/ # copy vào thư mục
+  + cp -r folder1 folder2 # copy thư mục
+
+### 2.5. Thay đổi quyền thao tác file: sudo chmod xxx filename
+- Cú pháp: sudo chmod xxx tenfile
+- Chức năng: Thay đổi quyền truy cập file (đọc, ghi, thực thi).
+- Ý nghĩa số:
+
+| Số | Quyền |
+|----|------|
+| 7  | rwx  |
+| 6  | rw-  |
+| 5  | r-x  |
+| 4  | r--  |
+
+- Ví dụ:
+  + sudo chmod 777 test.sh # full quyền
+  + sudo chmod 755 file.sh # owner full, others đọc + chạy
+  
+### 2.6. Edit file: sudo nano tenfile
+- Cú pháp: sudo nano tenfile
+- Chức năng: Mở file để chỉnh sửa trong terminal.
+- Ví dụ: sudo nano test.txt
+- Phím tắt quan trọng:
+  + CTRL+O : lưu nội dung sau khi edit.
+  + CTRL+X : thoát edit file
+
+### 2.7. Xem ip của máy ubuntu: ip -4 addr
+- Cú pháp: ip -4 addr
+- Chức năng: Hiển thị địa chỉ IPv4 của máy Ubuntu.
+- Ví dụ kết quả: inet 192.168.91.154/24
+-> IP là: 192.168.91.154 (dùng để SSH)
