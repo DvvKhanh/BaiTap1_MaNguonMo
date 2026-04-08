@@ -14,6 +14,12 @@
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/ede3d74f-9018-442b-8912-a34048cf450a" />
 
 ## 3. Thêm domain đã đăng ký vào trong cloudflare
+- Trong giao diện Cloudflare, chọn Add -> chọn Connect a domain
+<img width="1899" height="985" alt="image" src="https://github.com/user-attachments/assets/0e8892e5-33d4-43f8-8fa4-e15f006633d0" />
+
+- Nhập domain của bạn -> nhấn Continue
+<img width="1869" height="998" alt="image" src="https://github.com/user-attachments/assets/5fed0431-c5e3-4720-a62f-a412c454a26a" />
+
 - 
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/3e8bf65d-c03d-441b-ae16-caacf46a626b" />
 
