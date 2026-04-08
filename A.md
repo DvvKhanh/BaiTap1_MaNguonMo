@@ -5,8 +5,12 @@
 ## Bước 3: Xác thực CCCD và thông tin cá nhân
 ## Bước 4: Hoàn thành đăng ký
 # 2. Đăng ký tài khoản cloudflare
+- Truy cập: https://dash.cloudflare.com/
+- Đăng ký tài khoản
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/ede3d74f-9018-442b-8912-a34048cf450a" />
+
 ## 3. Thêm domain đã đăng ký vào trong cloudflare
+- 
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/3e8bf65d-c03d-441b-ae16-caacf46a626b" />
 
 <img width="603" height="141" alt="image" src="https://github.com/user-attachments/assets/49a2b508-389c-4acb-93cf-af89d7dc8c9e" />
