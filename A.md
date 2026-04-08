@@ -17,12 +17,13 @@
 - Trong giao diện Cloudflare, chọn Add -> chọn Connect a domain
 <img width="1899" height="985" alt="image" src="https://github.com/user-attachments/assets/0e8892e5-33d4-43f8-8fa4-e15f006633d0" />
 
-- Nhập domain của bạn -> nhấn Continue
+- Nhập domain -> nhấn Continue
 <img width="1869" height="998" alt="image" src="https://github.com/user-attachments/assets/5fed0431-c5e3-4720-a62f-a412c454a26a" />
 
-- 
+- Chọn Free Plan
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/3e8bf65d-c03d-441b-ae16-caacf46a626b" />
 
+- Cloudflare sẽ cấp 2 dòng:
 <img width="603" height="141" alt="image" src="https://github.com/user-attachments/assets/49a2b508-389c-4acb-93cf-af89d7dc8c9e" />
 
 ## 4. Nhập 2 dòng namespace của cloudflare vào trong trang quản lý DNS record của tên miền đăng ký
