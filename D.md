@@ -98,6 +98,9 @@ services:
     restart: always
 ```
 
+- Kiểm tra container myapi: docker compose ps
+<img width="1240" height="167" alt="image" src="https://github.com/user-attachments/assets/80405b6a-16c9-4701-bbb5-e3ced07468c8" />
+
 ## 6. Sửa đổi nginx/nginx.conf để /api trỏ tới service myapp cổng 9630
 - Gõ lệnh: ```nano ~/myapp/nginx/nginx.conf```
 - Sửa đoạn /api:
