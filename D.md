@@ -79,3 +79,41 @@ EXPOSE 9630
 CMD ["python", "app.py"]
 ```
 
+## 5. Sửa đổi docker-compose để sử dụng myapp
+- Gõ lệnh:
+```
+cd ~/myapp
+nano docker-compose.yml
+```
+- Thêm service myapi:
+```
+services:
+  myapi:
+    build:
+      context: ./myapi
+      dockerfile: Dockerfile
+    container_name: myapi
+    ports:
+      - "9630:9630"
+    restart: always
+```
+
+## 6. Sửa đổi nginx/nginx.conf để /api trỏ tới service myapp cổng 9630
+- Gõ lệnh: ```nano ~/myapp/nginx/nginx.conf```
+- Sửa đoạn /api:
+```
+location /api {
+    proxy_pass http://192.168.91.154:9630/tinh-vat;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+}
+```
+
+- Build & chạy lại:
+```
+docker compose down
+docker compose up -d --build
+```
+
+- Kiểm tra trực tiếp Flask: http://192.168.91.154:9630/tinh-vat?tien=100
+<img width="633" height="408" alt="image" src="https://github.com/user-attachments/assets/80ea825f-f05b-4cd1-8649-fa8ed7b60fce" />
