@@ -136,3 +136,13 @@ docker-compose restart mynodered
 
 - Giao diện Nodered
 <img width="1919" height="1083" alt="image" src="https://github.com/user-attachments/assets/8f0f3c8a-2755-4183-81a5-edd858b67624" />
+
+- Nginx:
+  + Tạo flow API: http in, function, http response
+<img width="685" height="100" alt="image" src="https://github.com/user-attachments/assets/bc221943-73b9-42da-a57f-5acafed23a4f" />
+
+  + Truy cập trực tiếp trên nodered: http://192.168.91.154:1880/api
+<img width="624" height="422" alt="image" src="https://github.com/user-attachments/assets/c29e9064-9045-411a-a3c2-f17d3f2646ba" />
+
+  + Truy cập qua domain: http://khanh123.id.vn/api
+<img width="545" height="410" alt="image" src="https://github.com/user-attachments/assets/8a1a483a-de1b-4d40-b033-30665dd7a19d" />
