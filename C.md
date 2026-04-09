@@ -1,18 +1,18 @@
 # C. Cấu hình docker compose
 ## 1. Tạo thư mục: ~/myapp
-- Trong Ubuntu, gõ lệnh: mkdir ~/myapp
+- Trong Ubuntu, gõ lệnh: ```mkdir ~/myapp```
 <img width="373" height="73" alt="image" src="https://github.com/user-attachments/assets/b0d75986-b3bb-40fa-87c8-89219fcb8ae2" />
 
-- Thư mục ~/myapp đã tạo thành công: ls ~
+- Thư mục ~/myapp đã tạo thành công: ```ls ~```
 <img width="274" height="83" alt="image" src="https://github.com/user-attachments/assets/8cf88b3b-24d6-4e8d-ab13-2804d76a578c" />
 
 ## 2. Chuyển vào trong thư mục ~/myapp
-- Trong Ubuntu, gõ lệnh: cd ~/myapp
-- Kiểm tra: pwd
+- Trong Ubuntu, gõ lệnh: ```cd ~/myapp```
+- Kiểm tra: ```pwd```
 <img width="277" height="85" alt="image" src="https://github.com/user-attachments/assets/c7086db8-c561-421f-b4ae-40c3ef3e409c" />
 
 ## 3. Tạo thư mục: ./myweb
-- Gõ lệnh: mkdir myweb nginx nodered
+- Gõ lệnh: ```mkdir myweb nginx nodered```
 - Cấu trúc thư mục:
 ```
 myapp/
@@ -22,7 +22,7 @@ myapp/
 ```
 
 ## 4. Tạo file ./myweb/index.html (với nội dung là thông tin cá nhân của em)
-- Gõ lệnh: nano myweb/index.html
+- Gõ lệnh: ```nano myweb/index.html```
 - Nội dung là thông tin các nhân:
 ```
 <!DOCTYPE html>
@@ -45,8 +45,8 @@ myapp/
   + Ctrl + X
  
 ## 5. Tạo file docker-compose.yml
-- Gõ lệnh: nano docker-compose.yml
-- Nội dung file: docker-compose.yml
+- Gõ lệnh: ```nano docker-compose.yml```
+- Nội dung file: ```docker-compose.yml```
 ```
 version: "3"
 
@@ -72,15 +72,12 @@ services:
 - Lưu lại.
 
 ## 6. Edit file ./nginx/nginx.conf
-- Gõ lệnh: nano nginx/nginx.conf
-- Nội dung file: ./nginx/nginx.conf
+- Gõ lệnh: ```nano nginx/nginx.conf```
+- Nội dung file: ```./nginx/nginx.conf```
 ```
-events {}
-
-http {
-    server {
+server {
         listen 80;
-        server_name myapp.local;
+        server_name khanh123.id.vn;
 
         location / {
             root /myweb;
@@ -88,23 +85,22 @@ http {
         }
 
         location /api {
-            proxy_pass http://mynodered:1880;
+            proxy_pass http://nodered:1880;
         }
     }
-}
 ```
 
 ## 7. Edit file ./nodered/settings.js để nodered bắt buộc đăng nhập
-### Bước 1: Chạy lần đầu: docker-compose up -d
+### Bước 1: Chạy lần đầu: ```docker-compose up -d```
 <img width="655" height="635" alt="image" src="https://github.com/user-attachments/assets/e9e9f989-1b6e-4ff8-a38e-6c3b51103c56" />
 
-### Bước 2: Kiểm tra: docker compose ps
+### Bước 2: Kiểm tra: ```docker compose ps```
 <img width="1248" height="148" alt="image" src="https://github.com/user-attachments/assets/058143ec-fab1-453b-acf5-917fd87bd29a" />
 
-### Bước 3: Dừng container: docker compose down
+### Bước 3: Dừng container: ```docker compose down```
 <img width="369" height="117" alt="image" src="https://github.com/user-attachments/assets/0553358b-eedd-44cd-bd71-7d7dc574fc79" />
 
-### Bước 4: Tạo password hash: docker exec -it mynodered node-red-admin hash-pw
+### Bước 4: Tạo password hash: ```docker exec -it mynodered node-red-admin hash-pw```
 <img width="871" height="95" alt="image" src="https://github.com/user-attachments/assets/0a379e87-8b38-4449-b974-1d9cd392d53f" />
 
 - Sau khi gõ lệnh, hệ thống hiện Password:, bạn hãy nhập mật khẩu mới của mình (ví dụ: khanh123) và nhấn Enter.
@@ -113,7 +109,7 @@ http {
 - Hãy bôi đen và Copy chuỗi ký tự đó.
 
 ### Bước 5: Dán mật khẩu mới vào cấu hình
-- Mở file settings.js để chỉnh sửa: nano ~/myapp/nodered/settings.js
+- Mở file settings.js để chỉnh sửa: ```nano ~/myapp/nodered/settings.js```
 - Tìm đến đoạn adminAuth và thay thế chuỗi password cũ bằng chuỗi bạn vừa copy:
 ```
 adminAuth: {
@@ -131,3 +127,12 @@ adminAuth: {
 ```
 docker-compose restart mynodered
 ```
+
+- Truy cập domain: http://khanh123.id.vn/ sẽ thấy thông tin cá nhân (nội dung file index.html)
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/d8e09083-2dcd-4663-a516-01219f0e2d40" />
+
+- Nodered cần truy cập đường link: http://192.168.91.154:1880, Nodered sẽ yêu cầu đăng nhập
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/741e9633-7e15-4d9a-bb34-4f857395963b" />
+
+- Giao diện Nodered
+<img width="1919" height="1083" alt="image" src="https://github.com/user-attachments/assets/8f0f3c8a-2755-4183-81a5-edd858b67624" />
