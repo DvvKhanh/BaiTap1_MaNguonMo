@@ -39,3 +39,116 @@
 <img width="702" height="382" alt="image" src="https://github.com/user-attachments/assets/8caf827a-fc8b-4b24-9e66-017468628134" />
 
 ## 6. Sửa file ./myweb/index.html : thêm code html+js để sử dụng được api đã khai báo proxy_pass (thực ra là sử dụng nodered http_in hoặc sử dụng service myapi)
+- Mở file index.html: ```nano ~/myapp/myweb/index.html```
+- Viết code HTML + JS:
+```
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Web - Đậu Văn Khánh</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 400px;
+            margin: auto;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: left;
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 10px;
+            max-height: 200px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🚀 Xin chào, tôi là Đậu Văn Khánh</h1>
+
+    <p>Nhập số tiền để tính VAT:</p>
+
+    <input type="number" id="tien" placeholder="Nhập số tiền...">
+
+    <br>
+
+    <button onclick="callAPI()">💰 Tính tiền</button>
+
+    <div class="result">
+        <pre id="result">Kết quả sẽ hiển thị ở đây...</pre>
+    </div>
+
+</div>
+
+<script>
+function callAPI() {
+    let tien = document.getElementById("tien").value;
+
+    if (!tien) {
+        document.getElementById("result").innerText = "⚠️ Vui lòng nhập số tiền!";
+        return;
+    }
+
+    fetch('/api?tien=' + tien)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("result").innerText =
+                JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+            document.getElementById("result").innerText =
+                "❌ Lỗi: " + error;
+        });
+}
+</script>
+
+</body>
+</html>
+```
+
+- Kết quả chạy trên trình duyệt: http://khanh123.id.vn/ hoặc http://192.168.91.154/
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/f52bfc06-04f1-4d94-be4f-831554e26dc3" />
