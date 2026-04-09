@@ -48,25 +48,29 @@ myapp/
 - Gõ lệnh: ```nano docker-compose.yml```
 - Nội dung file: ```docker-compose.yml```
 ```
-version: "3"
+version: '3.8'
 
 services:
-  nodered:
-    image: nodered/node-red
+  mynodered:
+    image: nodered/node-red:latest
     container_name: mynodered
     ports:
       - "1880:1880"
     volumes:
       - ./nodered:/data
+    restart: unless-stopped
 
-  nginx:
-    image: nginx
+  mynginx:
+    image: nginx:latest
     container_name: mynginx
     ports:
       - "80:80"
     volumes:
-      - ./myweb:/myweb
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./myweb:/myweb:ro
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - mynodered
+    restart: always
 ```
 
 - Lưu lại.
