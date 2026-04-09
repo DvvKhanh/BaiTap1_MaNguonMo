@@ -85,4 +85,15 @@ http {
 }
 ```
 
-## 7. 
+## 7. Edit file ./nodered/settings.js để nodered bắt buộc đăng nhập
+- Chạy lần đầu: docker-compose up -d
+<img width="655" height="635" alt="image" src="https://github.com/user-attachments/assets/e9e9f989-1b6e-4ff8-a38e-6c3b51103c56" />
+
+- Kiểm tra: docker compose ps
+<img width="857" height="119" alt="image" src="https://github.com/user-attachments/assets/3dc449d3-902c-4a8c-b468-320c0c29f0f2" />
+
+- Dừng container: docker compose down
+<img width="369" height="117" alt="image" src="https://github.com/user-attachments/assets/0553358b-eedd-44cd-bd71-7d7dc574fc79" />
+
+- Tạo password hash: docker run -it nodered/node-red admin hash-pw
+- 
