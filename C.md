@@ -25,10 +25,19 @@ myapp/
 - Gõ lệnh: nano myweb/index.html
 - Nội dung là thông tin các nhân:
 ```
-<h1>Xin chào</h1>
-<p>Họ tên: Đậu Văn Khánh</p> 
-<p>MSSV: K225480106099</p>
-<p>Lớp: K58KTP</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Personal Info</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Thông tin cá nhân</h1>
+    <p>Họ và tên: Đậu Văn Khánh</p>
+    <p>MSSV: K225480106099</p>
+    <p>Lớp: K58KTP</p>
+</body>
+</html>
 ```
 
 - Lưu:
@@ -86,14 +95,39 @@ http {
 ```
 
 ## 7. Edit file ./nodered/settings.js để nodered bắt buộc đăng nhập
-- Chạy lần đầu: docker-compose up -d
+### Bước 1: Chạy lần đầu: docker-compose up -d
 <img width="655" height="635" alt="image" src="https://github.com/user-attachments/assets/e9e9f989-1b6e-4ff8-a38e-6c3b51103c56" />
 
-- Kiểm tra: docker compose ps
-<img width="857" height="119" alt="image" src="https://github.com/user-attachments/assets/3dc449d3-902c-4a8c-b468-320c0c29f0f2" />
+### Bước 2: Kiểm tra: docker compose ps
+<img width="1248" height="148" alt="image" src="https://github.com/user-attachments/assets/058143ec-fab1-453b-acf5-917fd87bd29a" />
 
-- Dừng container: docker compose down
+### Bước 3: Dừng container: docker compose down
 <img width="369" height="117" alt="image" src="https://github.com/user-attachments/assets/0553358b-eedd-44cd-bd71-7d7dc574fc79" />
 
-- Tạo password hash: docker run -it nodered/node-red admin hash-pw
-- 
+### Bước 4: Tạo password hash: docker exec -it mynodered node-red-admin hash-pw
+<img width="871" height="95" alt="image" src="https://github.com/user-attachments/assets/0a379e87-8b38-4449-b974-1d9cd392d53f" />
+
+- Sau khi gõ lệnh, hệ thống hiện Password:, bạn hãy nhập mật khẩu mới của mình (ví dụ: khanh123) và nhấn Enter.
+- Nó sẽ trả về một chuỗi ký tự dài bắt đầu bằng 
+```$2b$... hoặc $2a$....```
+- Hãy bôi đen và Copy chuỗi ký tự đó.
+
+### Bước 5: Dán mật khẩu mới vào cấu hình
+- Mở file settings.js để chỉnh sửa: nano ~/myapp/nodered/settings.js
+- Tìm đến đoạn adminAuth và thay thế chuỗi password cũ bằng chuỗi bạn vừa copy:
+```
+adminAuth: {
+    type: "credentials",
+    users: [{
+        username: "admin",
+        password: "$2y$08$ytWvB.r5McY77jstkKSWCOAsV7sK6s80EK83R/vN6NlGzKN21ZZT6",
+        permissions: "*"
+    }]
+},
+```
+
+### Bước 6: Khởi động lại để áp dụng
+- Để Node-RED đọc lại file cấu hình mới, bạn phải restart container:
+```
+docker-compose restart mynodered
+```
