@@ -50,14 +50,14 @@ sudo apt update
 sudo apt install openssh-server -y
 ```
   
-- Kiểm tra SSH chạy chưa: sudo systemctl status ssh
+- Kiểm tra SSH chạy chưa: ```sudo systemctl status ssh```
 <img width="733" height="315" alt="image" src="https://github.com/user-attachments/assets/d33458e1-d82e-409e-9453-15686e0b73b3" />
 
 ### 1.4. SSH từ Windows
 - Nhấn Window + R -> Gõ cmd -> enter
 <img width="1475" height="702" alt="image" src="https://github.com/user-attachments/assets/c7b8b910-777d-4698-9bd5-644e6f6fadf3" />
 
-- Gõ lệnh SSH: ssh khanh@192.168.91.154
+- Gõ lệnh SSH: ```ssh khanh@192.168.91.154```
 - Lần đầu sẽ hiện: Are you sure you want to continue connecting (yes/no)? -> nhấn Yes
 <img width="1474" height="409" alt="image" src="https://github.com/user-attachments/assets/92676018-122e-471e-915a-0049d2c24b7a" />
 
@@ -69,7 +69,7 @@ sudo apt install openssh-server -y
 
 ## 2. Tìm hiểu các lệnh cơ bản của Ubuntu
 ### 2.1. Liệt kê các file trong thư mục: ls
-- Cú pháp: ls
+- Cú pháp: ```ls```
 - Chức năng: Hiển thị danh sách file và thư mục trong thư mục hiện tại.
 - Ví dụ:
 ```
@@ -78,11 +78,11 @@ ls -a # hiển thị cả file ẩn
 ```
 
 ### 2.2. Tạo thư mục: mkdir nameFolder
-- Cú pháp: mkdir ten_thu_muc
+- Cú pháp: ```mkdir ten_thu_muc```
 - Chức năng: Tạo thư mục mới.
 
 ### 2.3. Chuyển thư mục làm việc: cd path
-- Cú pháp: cd duong_dan
+- Cú pháp: ```cd duong_dan```
 - Chức năng: Di chuyển đến thư mục khác.
 - Ví dụ:
 ```
@@ -91,7 +91,7 @@ cd .. # quay lại thư mục trước
 cd ~ # về thư mục home
 ```
 ### 2.4. Copy file: cp file_nguồn path/file_đích
-- Cú pháp: cp file_nguon file_dich
+- Cú pháp: ```cp file_nguon file_dich```
 - Chức năng: Sao chép file hoặc thư mục.
 - Ví dụ:
 ```
@@ -101,7 +101,7 @@ cp -r folder1 folder2 # copy thư mục
 ```
 
 ### 2.5. Thay đổi quyền thao tác file: sudo chmod xxx filename
-- Cú pháp: sudo chmod xxx tenfile
+- Cú pháp: ```sudo chmod xxx tenfile```
 - Chức năng: Thay đổi quyền truy cập file (đọc, ghi, thực thi).
 - Ý nghĩa số:
 
@@ -119,15 +119,15 @@ sudo chmod 755 file.sh # owner full, others đọc + chạy
 ```
   
 ### 2.6. Edit file: sudo nano tenfile
-- Cú pháp: sudo nano tenfile
+- Cú pháp: ```sudo nano tenfile```
 - Chức năng: Mở file để chỉnh sửa trong terminal.
-- Ví dụ: sudo nano test.txt
+- Ví dụ: ```sudo nano test.txt```
 - Phím tắt quan trọng:
   + CTRL+O : lưu nội dung sau khi edit.
   + CTRL+X : thoát edit file
 
 ### 2.7. Xem ip của máy ubuntu: ip -4 addr
-- Cú pháp: ip -4 addr
+- Cú pháp: ```ip -4 addr```
 - Chức năng: Hiển thị địa chỉ IPv4 của máy Ubuntu.
 - Ví dụ kết quả: inet 192.168.91.154/24
 -> IP là: 192.168.91.154 (dùng để SSH)
@@ -141,7 +141,7 @@ sudo apt update
 sudo apt upgrade -y
 ```
 ### 3.2. Cài Docker
-- Gõ lệnh: sudo apt install docker.io -y
+- Gõ lệnh: ```sudo apt install docker.io -y```
  
 ### 3.3. Bật Docker và kiểm tra trạng thái
 - Gõ lệnh:
@@ -149,44 +149,44 @@ sudo apt upgrade -y
 sudo systemctl enable docker
 sudo systemctl start docker
 ```
-- Kiểm tra trạng thái: sudo systemctl status docker
+- Kiểm tra trạng thái: ```sudo systemctl status docker```
 <img width="1367" height="445" alt="image" src="https://github.com/user-attachments/assets/3818d80e-85e3-4227-9bfb-573cb957b48c" />
 
 ## 4. Kiểm tra phiên bản docker vừa cài đặt, kiểm tra phiên bản của docker compose
 ### 4.1. Kiểm tra Docker
-- Gõ lệnh: docker --version
+- Gõ lệnh: ```docker --version```
 <img width="457" height="60" alt="image" src="https://github.com/user-attachments/assets/ca07ca09-7199-45d3-9b68-185f44cc973f" />
 
 ### 4.2. Test Docker hoạt động
-- Gõ lệnh: sudo docker run hello-world
+- Gõ lệnh: ```sudo docker run hello-world```
 - Nếu thấy dòng: Hello from Docker! -> Thành công
 <img width="698" height="461" alt="image" src="https://github.com/user-attachments/assets/3acb4be4-9545-4708-9e4d-c377417e6381" />
 
 ### 4.3. Cài Docker Compose
-- Gõ lệnh: sudo apt install docker-compose -y
-- Kiểm tra Docker Compose: docker-compose --version
+- Gõ lệnh: ```sudo apt install docker-compose -y```
+- Kiểm tra Docker Compose: ```docker-compose --version```
 <img width="395" height="61" alt="image" src="https://github.com/user-attachments/assets/7d81a4c5-f69a-451a-bc0c-6d007e25f288" />
 
 ## 5. Cấu hình để docker chạy mà không cần tiền tố sudo
-- Thêm user vào group docker: sudo usermod -aG docker $USER
-- Áp dụng ngay với: newgrp docker
-- Test lại: docker run hello-world
+- Thêm user vào group docker: ```sudo usermod -aG docker $USER```
+- Áp dụng ngay với: ```newgrp docker```
+- Test lại: ```docker run hello-world```
 <img width="696" height="446" alt="image" src="https://github.com/user-attachments/assets/253455ca-d50e-44e4-aae7-0c299439496c" />
 
 ## 6. Tìm hiểu tập lệnh của docker và docker compose
 ### 6.1. Các tập lệnh của docker
-- Xem container đang chạy: docker ps
-- Xem tất cả container: docker ps -a
-- Xem image: docker images
-- docker images: docker pull nginx
-- Chạy container: docker run -d -p 80:80 nginx
+- Xem container đang chạy: ```docker ps```
+- Xem tất cả container: ```docker ps -a```
+- Xem image: ```docker images```
+- docker images: ```docker pull nginx```
+- Chạy container: ```docker run -d -p 80:80 nginx```
   + Ý nghĩa: Ý nghĩa: d → chạy nền; p 80:80 → map port
-- Dừng container: docker stop <container_id>
-- Xóa container: docker rm <container_id>
-- Xóa image: docker rmi <image_id>
+- Dừng container: ```docker stop <container_id>```
+- Xóa container: ```docker rm <container_id>```
+- Xóa image: ```docker rmi <image_id>```
 
 ### 6.2. Các tập lệnh của Docker Compose
-- Tạo file: nano docker-compose.yml
+- Tạo file: ```nano docker-compose.yml```
 - Ví dụ file:
 ```
 version: '3'
@@ -196,11 +196,11 @@ services:
     ports:
       - "80:80"
 ```
-- Chạy: docker-compose up -d
-- Dừng: docker-compose down
+- Chạy: ```docker-compose up -d```
+- Dừng: ```docker-compose down```
 
 ## 7. Đảm bảo tường lửa trên Ubuntu đã cho phép các cổng 80, 1880, 9630 (Lệnh: sudo ufw allow ...)
-- Bật firewall: sudo ufw enable
+- Bật firewall: ```sudo ufw enable```
 - Mở port:
 ```
 sudo ufw allow 80
@@ -209,5 +209,5 @@ sudo ufw allow 9630
 ```
 <img width="442" height="220" alt="image" src="https://github.com/user-attachments/assets/641d110e-1e44-4b86-b330-02218593a803" />
 
-- Kiểm tra: sudo ufw status
+- Kiểm tra: ```sudo ufw status```
 <img width="494" height="271" alt="image" src="https://github.com/user-attachments/assets/2281ff65-3db0-4be1-9a49-4cc03f84dd53" />
