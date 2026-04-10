@@ -55,7 +55,8 @@ healthcheck:
   + interval: mỗi 30 giây kiểm tra 1 lần.
   + timeout: quá 10 giây không phản hồi -> lỗi.
   + retries: thử lại 3 lần trước khi kết luận lỗi.
-
+  + start_period: khoảng thời gian chờ sau khi container vừa khởi động (ví dụ 10 giây), trong thời gian này nếu check lỗi cũng không bị tính -> tránh báo lỗi sai khi service chưa kịp chạy.
+  
 ## 3. Giới hạn resource cho một service (tránh việc 1 service chiếm quá nhiều ram)
 - Mở file: ```nano docker-compose.yml```
 - Thêm vào myapi trong docker-compose.yml:
@@ -77,5 +78,5 @@ deploy:
 - Ý nghĩa:
 
   Giúp theo dõi:
-  + container nào dùng nhiều RAM
-  + phát hiện service bất thường
+  + Container nào dùng nhiều RAM
+  + Phát hiện service bất thường
