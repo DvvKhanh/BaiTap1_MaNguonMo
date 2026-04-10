@@ -63,7 +63,7 @@ healthcheck:
 
 - Build lại: ```docker compose up -d --build```
 ## 3. Giới hạn resource cho một service (tránh việc 1 service chiếm quá nhiều ram)
-- Mở file: ```nano docker-compose.yml```
+- Mở file: ```nano ~/myapp/docker-compose.yml```
 - Thêm vào myapi trong docker-compose.yml:
 ```
 deploy:
