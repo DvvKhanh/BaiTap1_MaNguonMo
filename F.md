@@ -56,7 +56,12 @@ healthcheck:
   + timeout: quá 10 giây không phản hồi -> lỗi.
   + retries: thử lại 3 lần trước khi kết luận lỗi.
   + start_period: khoảng thời gian chờ sau khi container vừa khởi động (ví dụ 10 giây), trong thời gian này nếu check lỗi cũng không bị tính -> tránh báo lỗi sai khi service chưa kịp chạy.
-  
+
+- Để cơ chế healthcheck hoạt động chính xác, image myapi cần được trang bị công cụ curl. Tuy nhiên, với base image python:3.9-slim, tiện ích này thường không được cài đặt sẵn. Vì vậy, trong trường hợp healthcheck báo lỗi mặc dù ứng dụng vẫn hoạt động bình thường, cần bổ sung bước cài đặt curl trong Dockerfile để đảm bảo quá trình kiểm tra trạng thái dịch vụ diễn ra đúng.
+- Gõ lệnh: ```nano ~/myapp/myapi/Dockerfile```
+<img width="1479" height="758" alt="image" src="https://github.com/user-attachments/assets/7f96298b-004d-4268-bcd2-5874fb299ed7" />
+
+- Build lại: ```docker compose up -d --build```
 ## 3. Giới hạn resource cho một service (tránh việc 1 service chiếm quá nhiều ram)
 - Mở file: ```nano docker-compose.yml```
 - Thêm vào myapi trong docker-compose.yml:
