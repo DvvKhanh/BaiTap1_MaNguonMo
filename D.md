@@ -118,5 +118,8 @@ docker compose down
 docker compose up -d --build
 ```
 
+- Mở trình duyệt: http://192.168.91.154:9630/
+<img width="677" height="285" alt="image" src="https://github.com/user-attachments/assets/cb7be013-80d2-4110-8296-40fbedfc3eb7" />
+
 - Kiểm tra trực tiếp Flask: http://192.168.91.154:9630/tinh-vat?tien=100
 <img width="633" height="408" alt="image" src="https://github.com/user-attachments/assets/80ea825f-f05b-4cd1-8649-fa8ed7b60fce" />
