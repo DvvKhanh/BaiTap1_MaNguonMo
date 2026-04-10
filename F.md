@@ -30,11 +30,11 @@ docker logs mynodered
   + Sai quyền thư mục ./nodered
 
 ### Sửa lỗi và build lại
-- Gõ lệnh: ```docker compose up -d --build```
+- Gõ lệnh: ```docker-compose up -d --build```
 - Dùng --build để cập nhật lại code sau khi sửa.
 
 ### Kiểm tra lại
-- Gõ lệnh: ```docker compose ps```
+- Gõ lệnh: ```docker-compose ps```
 - Tất cả container phải ở trạng thái: ```Up```
 
 ## 2. Thêm healthcheck cho myapi trong file docker-compose.yml
