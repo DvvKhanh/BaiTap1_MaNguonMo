@@ -67,4 +67,4 @@ docker-compose ps
 ```
 
 ## 6. Kiểm tra url sub-domain đã hoạt động public cho mọi end-user
-- Truy cập link: khanh123.id.vn
+- Truy cập link: http://khanh123.id.vn/
