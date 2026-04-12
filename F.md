@@ -59,6 +59,7 @@ healthcheck:
 
 - Để cơ chế healthcheck hoạt động chính xác, image myapi cần được trang bị công cụ curl. Tuy nhiên, với base image python:3.9-slim, tiện ích này thường không được cài đặt sẵn. Vì vậy, trong trường hợp healthcheck báo lỗi mặc dù ứng dụng vẫn hoạt động bình thường, cần bổ sung bước cài đặt curl trong Dockerfile để đảm bảo quá trình kiểm tra trạng thái dịch vụ diễn ra đúng.
 - Gõ lệnh: ```nano ~/myapp/myapi/Dockerfile```
+- Thêm: ```RUN pip install --no-cache-dir -r requirements.txt``` vào file Dockerfile
 <img width="1479" height="758" alt="image" src="https://github.com/user-attachments/assets/7f96298b-004d-4268-bcd2-5874fb299ed7" />
 
 - Build lại: ```docker compose up -d --build```
