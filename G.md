@@ -55,6 +55,7 @@ docker-compose ps
 
 - Nhập thông tin:
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/2f426d44-aec3-43a7-98e6-3ce403c0a410" />
+
 ```
 | Trường    | Giá trị             |
 | --------- | ------------------- |
