@@ -20,3 +20,4 @@
 - Node Red: http://192.168.91.154:1880
 - Flash API: http://192.168.91.154:9630
 - Nginx: http://192.168.91.154:80
+- Web: http://app.khanh123.id.vn
