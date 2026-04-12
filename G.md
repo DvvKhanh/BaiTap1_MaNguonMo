@@ -68,3 +68,87 @@ docker-compose ps
 
 ## 6. Kiểm tra url sub-domain đã hoạt động public cho mọi end-user
 - Truy cập link: http://khanh123.id.vn/
+
+# Câu hỏi về bài tập
+## 1. Tại sao phải dùng Nginx làm Reverse Proxy mà không trỏ thẳng Tunnel vào Node-RED?
+- Nginx giúp điều phối nhiều service trên cùng 1 domain:
+  + / → web (index.html)
+  + /api → Node-RED hoặc Flask
+- Ẩn backend (không lộ port 1880, 9630) → tăng bảo mật.
+- Dễ mở rộng: thêm nhiều API/service mà không cần thêm domain.
+
+-> Nếu không dùng Nginx → chỉ truy cập được 1 service duy nhất.
+
+## 2. Sự khác biệt giữa việc Mount file và Mount thư mục trong Docker là gì?
+- Mount thư mục:
+  + Gắn cả thư mục (./myweb:/myweb).
+  + Dùng cho HTML, dữ liệu, source code.
+  + Sửa file → cập nhật ngay.
+- Mount file:
+  + Gắn 1 file (nginx.conf).
+  + Dùng cho cấu hình.
+
+-> Tóm lại: thư mục = dữ liệu, file = cấu hình
+
+## 3. Nếu thay đổi file index.html ở máy Ubuntu, nội dung trên web có thay đổi ngay không? Tại sao?
+- Có, cập nhật ngay.
+- Vì dùng bind mount (./myweb:/myweb).
+- Nginx đọc trực tiếp file trên máy Ubuntu.
+
+-> Không cần restart container.
+
+## 4. Docker-compose.yml khai báo các services có phần restart: always hoặc restart: unless-stopped : chúng để làm gì?
+- restart: always: Container tự chạy lại khi bị lỗi hoặc reboot máy
+- restart: unless-stopped: Tự chạy lại, trừ khi bị stop thủ công
+
+-> Giúp hệ thống chạy ổn định, tránh bị tắt dịch vụ
+
+## 5. Cách khai báo để tất cả các services đều dùng chung 1 network? lợi ích của việc khai báo này là gì? Sửa đổi file docker-compose để tất cả các service đều dùng chung 1 network.
+- Khai báo:
+```
+networks:
+  mynetwork:
+```
+- Gắn vào service:
+```
+services:
+  myapi:
+    networks:
+      - mynetwork
+```
+- Lợi ích:
+  + Container gọi nhau bằng tên (myapi, mynginx).
+  + Không cần dùng IP.
+  + Dễ quản lý và ổn định hơn.
+
+## 6. Tìm cách đưa Cloudflare Token vào trong file .env rồi sau đó thêm .env vào file .gitignore trước khi push code lên github. Tại sao nói đây là điều quan trọng về bảo mật mã nguồn?
+- Tạo file .env:
+```
+CLOUDFLARE_TOKEN=abc123
+```
+- Dùng trong docker-compose:
+```
+command: tunnel --token ${CLOUDFLARE_TOKEN}
+```
+- Thêm .env vào .gitignore
+- Lý do:
+  + Token là thông tin nhạy cảm.
+  + Nếu push lên GitHub → có thể bị lộ và bị hack
+
+-> Đây là nguyên tắc bảo mật quan trọng
+
+## 7. Tại sao chúng ta nên thêm hậu tố :ro khi mount file cấu hình Nginx?
+- :ro = read-only (chỉ đọc)
+- Container không thể sửa file.
+- Lợi ích:
+  + Tránh lỗi cấu hình.
+  + Tăng bảo mật.
+
+-> Bảo vệ file nginx.conf
+
+## 8. Khi dùng Cloudflare Tunnel: có cần thiết phải mở cổng cho các service nữa không?
+- Không cần mở port ra Internet.
+- Vì tunnel tạo kết nối từ: Ubuntu → Cloudflare
+- Ưu điểm:
+  + Không cần NAT / port forwarding.
+  + An toàn hơn.
