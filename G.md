@@ -67,7 +67,14 @@ docker-compose ps
 ```
 
 ## 6. Kiểm tra url sub-domain đã hoạt động public cho mọi end-user
-- Truy cập link: http://khanh123.id.vn/
+- Mở web: https://app.khanh123.id.vn/
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/712ff037-ba1f-485a-8bf0-0b0b8bb30fb6" />
+
+- Test API: http://app.khanh123.id.vn/api?tien=100
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/1a637a10-06ab-4ed3-98c0-57cee307a5ce" />
+
+- Truy cập trên điện thoại:
+<img width="828" height="1792" alt="image" src="https://github.com/user-attachments/assets/74d5633e-63c4-46ab-8ed8-c8f6cf56cf78" />
 
 # Câu hỏi về bài tập
 ## 1. Tại sao phải dùng Nginx làm Reverse Proxy mà không trỏ thẳng Tunnel vào Node-RED?
