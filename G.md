@@ -59,7 +59,7 @@ docker-compose ps
 ```
 | Trường    | Giá trị             |
 | --------- | ------------------- |
-| Subdomain | Để trống            |
+| Subdomain | app                 |
 | Domain    | `khanh123.id.vn`    |
 | Path      | Để trống            |
 | Type      | HTTP                |
